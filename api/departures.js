@@ -11,3 +11,10 @@ export default async function handler(req, res) {
     res.status(500).json({ error: "proxy error" });
   }
 }
+
+export default async function handler(req, res) {
+  res.json({
+    hasKey: !!process.env.API_KEY,
+    keyPreview: process.env.API_KEY?.slice(0, 5)
+  });
+}
